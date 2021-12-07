@@ -1,0 +1,13 @@
+### URL Scanner request
+# @name urlScan
+
+@baseUrl = http://localhost:3000
+
+POST {{baseUrl}}/scan-urls HTTP/1.1
+Content-Type: text/plain
+Accept: application/json
+Content-Length: 250
+
+Visit photo hosting sites such as www.flickr.com, 500px.com, www.freeimagehosting.net and
+https://postimage.io, and upload these two image files, picture.dog.png and picture.cat.jpeg,
+there. After that share their links at https://www.facebook.com/ and http://🍕.ws
