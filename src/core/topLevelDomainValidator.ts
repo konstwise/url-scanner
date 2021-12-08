@@ -1,3 +1,9 @@
+// Validates top level domain against official TLD list taken here:
+// https://data.iana.org/TLD/tlds-alpha-by-domain.txt
+// 
+// Normalizes to ASCII form for checking PunnyCode domains.
+// Could be improved by updating from the source using cron or any scheduler.
+
 import * as fs from 'fs';
 import * as url from 'url';
 

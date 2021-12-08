@@ -1,5 +1,5 @@
-### URL Scanner request
-# @name urlScan
+### URL Scanner acceptance request
+# @name acceptance
 
 @baseUrl = http://localhost:3000
 
@@ -10,5 +10,16 @@ Content-Length: 250
 
 Visit photo hosting sites such as www.flickr.com, 500px.com, www.freeimagehosting.net and
 https://postimage.io, and upload these two image files, picture.dog.png and picture.cat.jpeg, 
-there. After that share their links at https://www.facebook.com/ and http://🍕.ws. 
-More testing: valid-PunnyCode-domain.Дети and invalid.аааааааааа MiXedCase.CoM
+there. After that share their links at https://www.facebook.com/ and http://🍕.ws
+
+### URL Scanner PunnyCode and more testing request
+# @name punny-code
+
+POST {{baseUrl}}/scan-urls HTTP/1.1
+Content-Type: text/plain
+Accept: application/json
+Content-Length: 250
+ 
+valid-PunnyCode-domain.Дети
+invalid-non-Latin.аааааааааа 
+MiXedCase.CoM

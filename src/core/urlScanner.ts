@@ -60,12 +60,24 @@ export class UrlScanner implements IUrlScanner {
     let rawLinks = [];
 
     for(let result of results) {
-      let {link, scheme, tld} = result.groups;
-      rawLinks.push({link, scheme, tld});
+      //let {link, scheme, tld} = result.groups;
+      rawLinks.push(result.groups as any as ParsedLink);
     }
     
-    const trueLinks = rawLinks.filter(rl => this._tldValidator.isValid(rl.tld));
+    const validLinks = rawLinks.filter(rl => this._tldValidator.isValid(rl.tld));
 
-    return trueLinks.map(l => l.link);
+    return validLinks.map(l => this.ensureScheme(l));
   };
+
+  ensureScheme(link: ParsedLink): string {
+    const defaultScheme = 'http://';
+    return link.scheme ? link.link : `${defaultScheme}${link.link}`;
+  }
 }
+
+class ParsedLink {
+  link: string;
+  scheme: string;
+  tld: string;
+}
+
