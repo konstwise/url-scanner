@@ -6,7 +6,7 @@
   "scripts": {
     "build_once": "tsc && cp -r ./src/resources ./dist/src",
     "build": "tsc --w && cp ./src/resources ./dist",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "start": "tsc && ts-node ./dist/index.js"
   },
   "author": "Konstantin Smirnov",
@@ -17,8 +17,11 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.3",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^27.4.3",
+    "ts-jest": "^27.1.1"
   }
 }
