@@ -56,17 +56,16 @@ export class UrlScanner implements IUrlScanner {
 
   scan(text: string): Array<string> {
     const results = (text || "").matchAll(this._weburl_regexp);
-    
+ 
     let rawLinks = [];
 
     for(let result of results) {
-      //let {link, scheme, tld} = result.groups;
       rawLinks.push(result.groups as any as ParsedLink);
     }
-    
-    const validLinks = rawLinks.filter(rl => this._tldValidator.isValid(rl.tld));
 
-    return validLinks.map(l => this.ensureScheme(l));
+    return rawLinks
+        .filter(rl => this._tldValidator.isValid(rl.tld))
+        .map(vl => this.ensureScheme(vl));
   };
 
   ensureScheme(link: ParsedLink): string {
