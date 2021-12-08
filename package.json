@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --w",
+    "build_once": "tsc && cp -r ./src/resources ./dist/src",
+    "build": "tsc --w && cp ./src/resources ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && ts-node ./dist/index.js"
   },

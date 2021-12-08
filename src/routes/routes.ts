@@ -1,8 +1,10 @@
+import * as express from 'express';
 import { 
     scanUrls
 } from '../controllers/controller';
 
-const routes = (app) => {      
+
+const routes = (app: express.Express) => {      
     // POST /scanUrls endpoint
     app.route('/scan-urls')
     .post((req, res, next) => {
