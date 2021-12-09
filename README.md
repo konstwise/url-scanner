@@ -5,10 +5,10 @@ First of all, clone the repository or unpack a zipped one to a local folder.
 ## Build and Run Service as Docker Container
 
 #### To build a docker image of the service launch this command from the folder with the sources:
-    ````docker build -t konstwise/url-scanner:latest . --no-cache````
+    docker build -t konstwise/url-scanner:latest . --no-cache
 
 #### To run the image that has been built launch this command from the shell:
-    ````docker run -it -p 3000:3000 konstwise/url-scanner:latest````
+    docker run -it -p 3000:3000 konstwise/url-scanner:latest
 
 ## Tests
 
