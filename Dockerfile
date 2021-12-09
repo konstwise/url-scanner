@@ -3,25 +3,27 @@
 # Create app directory
 WORKDIR /usr/src/app
 
-# Install app dependencies
+# Copy sources and configuration files
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
 COPY tsconfig.json ./
 COPY index.ts ./
+COPY jest.config.js ./
 
 # copy source code to /app/src folder
 COPY ./src ./src
+COPY ./tests ./tests
 
-# check files list
-RUN ls -a
-
+# setup dependencies
 RUN npm install
-RUN npm run build_once
 
-RUN ls ./dist -a
+# run unit tests
+RUN npm run test
 
-RUN ls ../ -a
+# build
+RUN npm run build
+
 
 # Start
 CMD [ "node", "./dist/index.js" ]

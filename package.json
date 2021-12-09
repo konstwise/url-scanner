@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build_once": "tsc && cp -r ./src/resources ./dist/src",
+    "build": "tsc && cp -r ./src/resources ./dist/src",
     "build_watch": "tsc --w",
-    "build": "tsc",
     "test": "jest --coverage",
     "start": "tsc && ts-node ./dist/index.js"
   },

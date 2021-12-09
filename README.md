@@ -1,4 +1,14 @@
 # url-scanner
+Docker engine must be installed to build, test and run the service. 
+First of all, clone the repository or unpack a zipped one to a local folder.
+
+## Build and Run Service as Docker Container
+
+To build a docker image of the service launch this command from the folder with the sources:
+    sudo docker build -t konstwise/url-scanner:latest . --no-cache
+
+To run the image that has been built launch this command from the shell:
+    docker run -it -p 3000:3000 konstwise/url-scanner:latest
 
 ## Send Requests Using cURL
 
@@ -7,13 +17,11 @@
     --url http://localhost:3000/scan-urls \
     --header 'accept: application/json' \
     --header 'content-type: text/plain' \
-    --header 'user-agent: vscode-restclient' \
-    --data 'valid-PunnyCode-domain.Детиinvalid-non-Latin.ааааааааааMiXedCase.CoM'
+    --data 'valid-PunnyCode-domain.Дети invalid-non-Latin.ааааааааааMiXedCase.CoM'
 
 ### Example from Assignment Document
     curl --request POST \
     --url http://localhost:3000/scan-urls \
     --header 'accept: application/json' \
     --header 'content-type: text/plain' \
-    --header 'user-agent: vscode-restclient' \
     --data 'Visit photo hosting sites such as www.flickr.com, 500px.com, www.freeimagehosting.net andhttps://postimage.io, and upload these two image files, picture.dog.png and picture.cat.jpeg,there. After that share their links at https://www.facebook.com/ and http://🍕.ws'
