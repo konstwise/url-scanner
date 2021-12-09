@@ -4,11 +4,16 @@ First of all, clone the repository or unpack a zipped one to a local folder.
 
 ## Build and Run Service as Docker Container
 
-To build a docker image of the service launch this command from the folder with the sources:
-    sudo docker build -t konstwise/url-scanner:latest . --no-cache
+#### To build a docker image of the service launch this command from the folder with the sources:
+    ````docker build -t konstwise/url-scanner:latest . --no-cache````
 
-To run the image that has been built launch this command from the shell:
-    docker run -it -p 3000:3000 konstwise/url-scanner:latest
+#### To run the image that has been built launch this command from the shell:
+    ````docker run -it -p 3000:3000 konstwise/url-scanner:latest````
+
+## Tests
+
+Unit tests are implemented using Jest framework and running while building a docker image.
+For details, please take a look here: **[Url Scanner tests](tests/)**.
 
 ## Send Requests Using cURL
 
@@ -17,7 +22,7 @@ To run the image that has been built launch this command from the shell:
     --url http://localhost:3000/scan-urls \
     --header 'accept: application/json' \
     --header 'content-type: text/plain' \
-    --data 'valid-PunnyCode-domain.Дети invalid-non-Latin.ааааааааааMiXedCase.CoM'
+    --data 'valid-PunnyCode-domain.Дети invalid-non-Latin.аааааааааа MiXedCase.CoM'
 
 ### Example from Assignment Document
     curl --request POST \
